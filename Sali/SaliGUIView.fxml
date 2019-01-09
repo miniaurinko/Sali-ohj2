@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import fi.jyu.mit.fxgui.ListChooser?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sali.SaliGUIController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Tiedosto">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleTallenna" text="Tallenna" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleTulosta" text="Tulosta" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleLopeta" text="Lopeta" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Muokkaa">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleUusiJasen" text="Lisää uusi jäsen" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleUusiSalikaynti" text="Lisää uusi salikäynti" />
+                  <MenuItem mnemonicParsing="false" onAction="#handlePoistaJasen" text="Poista jäsen" />
+                  <MenuItem mnemonicParsing="false" onAction="#handlePoistaSalikaynti" text="Poista salikäynti" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleVaihdanimi" text="Nimen vaihto" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Apua">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleApua" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <VBox prefHeight="275.0" prefWidth="158.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Jäsenet" />
+            <ListChooser fx:id="chooserJasenet" rivit="" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="50.0" left="20.0" right="10.0" top="50.0" />
+         </BorderPane.margin>
+      </VBox>
+   </left>
+   <right>
+      <VBox prefHeight="375.0" prefWidth="427.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Harjoitustiedot">
+               <VBox.margin>
+                  <Insets left="10.0" right="50.0" top="50.0" />
+               </VBox.margin>
+            </Label>
+            <SplitPane prefHeight="258.0" prefWidth="265.0">
+              <items>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="256.0" prefWidth="360.0">
+                     <children>
+                        <DatePicker fx:id="guiPvm" layoutX="14.0" layoutY="14.0" promptText="1.1.2017" />
+                        <TextField fx:id="fxKesto" editable="false" layoutX="251.0" layoutY="56.0" prefHeight="25.0" prefWidth="115.0" />
+                        <TextField fx:id="fxPainot" editable="false" layoutX="251.0" layoutY="128.0" prefHeight="25.0" prefWidth="115.0" />
+                        <TextField fx:id="fxSarjat" editable="false" layoutX="252.0" layoutY="163.0" prefHeight="25.0" prefWidth="114.0" />
+                        <TextField fx:id="fxToistot" editable="false" layoutX="254.0" layoutY="200.0" prefHeight="25.0" prefWidth="112.0" />
+                        <Label layoutX="206.0" layoutY="204.0" text="Toistot" />
+                        <Label layoutX="207.0" layoutY="132.0" text="Painot" />
+                        <Label layoutX="209.0" layoutY="167.0" text="Sarjat" />
+                        <Label layoutX="210.0" layoutY="60.0" text="Kesto" />
+                        <Label layoutX="25.0" layoutY="39.0" text="Liikkeet" />
+                        <ListChooser fx:id="chooserLiikkeet" layoutX="8.0" layoutY="65.0" prefHeight="186.0" prefWidth="171.0" rivit="" />
+                        <Button fx:id="paivitaPaiva" layoutX="198.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleOk" prefHeight="25.0" prefWidth="30.0" text="ok" />
+                     </children>
+                  </AnchorPane>
+              </items>
+               <VBox.margin>
+                  <Insets bottom="50.0" left="10.0" right="20.0" />
+               </VBox.margin>
+            </SplitPane>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>
